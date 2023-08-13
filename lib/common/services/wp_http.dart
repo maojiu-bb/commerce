@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response, FormData, MultipartFile;
 import 'package:woo_commerce/common/index.dart';
 
+/// 配置 dio
 class WPHttpService extends GetxService {
   static WPHttpService get to => Get.find();
 
