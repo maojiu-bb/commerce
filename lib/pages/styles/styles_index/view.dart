@@ -11,10 +11,18 @@ class StylesIndexPage extends GetView<StylesIndexController> {
   Widget _buildView() {
     return Column(
       children: [
+        // 多语言设置
         ListTile(
           onTap: controller.onLanguageSelected,
           title: Text(
             "语言 : ${ConfigService.to.locale.toLanguageTag()}",
+          ),
+        ),
+        // 主题切换
+        ListTile(
+          onTap: controller.onThemeSelected,
+          title: Text(
+            "主题 : ${ConfigService.to.isDarkModel ? "Dark" : "Light"}",
           ),
         ),
       ],

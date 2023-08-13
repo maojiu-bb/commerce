@@ -7,4 +7,7 @@ class Constants {
   // 本地存储key
   // 离线后保存语言种类
   static const storageLanguageCode = 'language_code';
+
+  // 离线后保存当前主题
+  static const storageThemeCode = 'theme_code';
 }

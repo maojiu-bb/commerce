@@ -17,10 +17,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
 
       // 不展示debug banner
       debugShowCheckedModeBanner: false,
@@ -36,6 +32,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: Translation.supportedLocales, // 支持的语言种类
       locale: ConfigService.to.locale, // 当前语言种类
       fallbackLocale: Translation.fallbackLocale, // 默认语言种类
+
+      // 样式
+      theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
     );
   }
 }
