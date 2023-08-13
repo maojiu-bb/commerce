@@ -9,8 +9,9 @@ class SplashPage extends GetView<SplashController> {
 
   // 主视图
   Widget _buildView() {
-    return Center(
-      child: Text("SplashPage - ${ConfigService.to.version}"),
+    return const ImageWidget.asset(
+      AssetsImages.splashPng,
+      fit: BoxFit.fill,
     );
   }
 
@@ -21,10 +22,8 @@ class SplashPage extends GetView<SplashController> {
       id: "splash",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("splash")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          // appBar: AppBar(title: const Text("splash")),
+          body: _buildView(),
         );
       },
     );
