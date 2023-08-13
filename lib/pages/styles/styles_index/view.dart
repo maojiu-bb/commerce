@@ -18,12 +18,19 @@ class StylesIndexPage extends GetView<StylesIndexController> {
             "语言 : ${ConfigService.to.locale.toLanguageTag()}",
           ),
         ),
+
         // 主题切换
         ListTile(
           onTap: controller.onThemeSelected,
           title: Text(
             "主题 : ${ConfigService.to.isDarkModel ? "Dark" : "Light"}",
           ),
+        ),
+
+        // 文本
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesText),
+          title: const Text("Text 文本"),
         ),
       ],
     );
