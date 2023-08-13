@@ -45,6 +45,7 @@ dependencies:
   badges: ^3.1.1
   extended_image: ^8.0.2
   flutter_screenutil: ^5.8.4
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,11 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+# native 启动图
+flutter_native_splash:
+  color: '#ffffff'
+  image: 'assets/icons/launcher_android.png'
 
 # app 图标
 flutter_icons:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:woo_commerce/common/index.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +7,8 @@ import 'package:get/get.dart';
 class Global {
   static Future<void> init() async {
     // flutter 跟原生端的接口进行初始化
-    WidgetsFlutterBinding.ensureInitialized();
+    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
 // storage 工具类
     /// 持久化存储
