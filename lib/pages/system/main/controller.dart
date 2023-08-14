@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:woo_commerce/common/index.dart';
 
 class MainController extends GetxController {
   MainController();
@@ -18,6 +19,7 @@ class MainController extends GetxController {
   void onReady() {
     super.onReady();
     _initData();
+    Get.toNamed(RouteNames.systemRegister);
   }
 
   // @override
