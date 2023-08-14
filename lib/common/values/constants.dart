@@ -10,4 +10,7 @@ class Constants {
 
   // 离线后保存当前主题
   static const storageThemeCode = 'theme_code';
+
+// 首次打开
+  static const storageAlreadyOpen = 'already_open';
 }
