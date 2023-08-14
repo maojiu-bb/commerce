@@ -1,3 +1,4 @@
 library components;
 
+export './welcome_slider.dart';
 // export './xxxx.dart';
