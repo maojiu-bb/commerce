@@ -38,17 +38,28 @@ dependencies:
   cupertino_icons: ^1.0.2
   # getx 框架
   get: ^4.6.5
+  # 版本
   package_info_plus: ^4.1.0
   shared_preferences: ^2.2.0
+  # 网络请求
   dio: ^5.3.2
+  # svg
   flutter_svg: ^2.0.7
+  # badges
   badges: ^3.1.1
+  # 图片扩展
   extended_image: ^8.0.2
+  # 屏幕适配
   flutter_screenutil: ^5.8.4
+  # native splash
   flutter_native_splash: ^2.2.16
+  # slider
   carousel_slider: ^4.2.1
+  # 表单验证
   validatorless: ^1.2.3
+  # pin
   pinput: ^3.0.0
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:
