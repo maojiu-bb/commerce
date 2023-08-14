@@ -148,7 +148,11 @@ class RegisterPage extends GetView<RegisterController> {
       id: "register",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("register")),
+          // appBar: AppBar(title: const Text("register")),
+          appBar: AppBar(
+            backgroundColor: AppColors.background,
+            elevation: 0,
+          ),
           body: SafeArea(
             child: _buildView(),
           ),
