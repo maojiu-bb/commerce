@@ -23,5 +23,8 @@ class Global {
 
     /// dio service
     Get.put<WPHttpService>(WPHttpService());
+
+    /// user service
+    Get.put<UserService>(UserService());
   }
 }
