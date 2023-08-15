@@ -18,4 +18,8 @@ class Constants {
   static const storageToken = 'token';
   // 用户资料缓存
   static const storageProfile = 'profile';
+
+  // AES
+  static const aesKey = 'aH5aH5bG0dC6aA3oN0cK4aU5jU6aK2lN';
+  static const aesIV = 'hK6eB4aE1aF3gH5q';
 }
