@@ -35,5 +35,6 @@ export 'system/register/index.dart';
 export 'system/register_pin/index.dart';
 export 'system/splash/index.dart';
 export 'system/welcome/index.dart';
+export 'msg/msg_index/index.dart';
 
 // export './xxxx.dart';
