@@ -60,12 +60,12 @@ class _MainViewGetX extends GetView<MainController> {
                 NavigationItemModel(
                   label: LocaleKeys.tabBarCart.tr,
                   icon: AssetsSvgs.navCartSvg,
-                  count: 3,
+                  count: 3, // badge
                 ),
                 NavigationItemModel(
                   label: LocaleKeys.tabBarMessage.tr,
                   icon: AssetsSvgs.navMessageSvg,
-                  count: 9,
+                  count: 9, // badge
                 ),
                 NavigationItemModel(
                   label: LocaleKeys.tabBarProfile.tr,
