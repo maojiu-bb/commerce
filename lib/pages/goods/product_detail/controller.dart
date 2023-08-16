@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
-class ProductDetailController extends GetxController {
+class ProductDetailController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   ProductDetailController();
 
   // 商品 id , 获取路由传递参数
@@ -12,6 +14,11 @@ class ProductDetailController extends GetxController {
   List<KeyValueModel> bannerItems = [];
   // Banner 当前位置
   int bannerCurrentIndex = 0;
+
+  // tab 控制器
+  late TabController tabController;
+  // tab 控制器
+  int tabIndex = 0;
 
   // 拉取商品详情
   _loadProduct() async {
@@ -43,8 +50,18 @@ class ProductDetailController extends GetxController {
     ));
   }
 
+  // 切换 tab
+  void onTapBarTap(int index) {
+    tabIndex = index;
+    tabController.animateTo(index);
+    update(["product_tab"]);
+  }
+
   _initData() async {
     await _loadProduct();
+
+    // 初始化 tab 控制器
+    tabController = TabController(length: 3, vsync: this);
 
     update(["product_detail"]);
   }
@@ -62,8 +79,9 @@ class ProductDetailController extends GetxController {
     _initData();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  @override
+  void onClose() {
+    super.onClose();
+    tabController.dispose();
+  }
 }
