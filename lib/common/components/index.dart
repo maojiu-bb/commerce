@@ -9,4 +9,5 @@ export './category_item.dart';
 export './refresher.dart';
 export './placehold.dart';
 export './appbar.dart';
+export './product_item.dart';
 // export './xxxx.dart';
