@@ -11,4 +11,5 @@ export './placehold.dart';
 export './appbar.dart';
 export './product_item.dart';
 export './gallery.dart';
+export './colors_list.dart';
 // export './xxxx.dart';
