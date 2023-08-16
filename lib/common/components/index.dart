@@ -10,4 +10,5 @@ export './refresher.dart';
 export './placehold.dart';
 export './appbar.dart';
 export './product_item.dart';
+export './gallery.dart';
 // export './xxxx.dart';
