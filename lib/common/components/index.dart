@@ -7,4 +7,5 @@ export './pin.dart';
 export './carousel.dart';
 export './category_item.dart';
 export './refresher.dart';
+export './placehold.dart';
 // export './xxxx.dart';
