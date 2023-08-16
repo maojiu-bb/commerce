@@ -50,7 +50,8 @@ class BuildNavigation extends StatelessWidget {
           ),
         ]
             .toColumn(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max, // 撑满
+              mainAxisAlignment: MainAxisAlignment.center, // 居中
             )
             .onTap(() => onTap(i))
             .expanded(),
