@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:woo_commerce/common/components/appbar.dart';
+import 'package:woo_commerce/common/components/product_item.dart';
+import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';
 
@@ -8,8 +13,21 @@ class ProductListPage extends GetView<ProductListController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ProductListPage"),
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3, // 每行三个
+        mainAxisSpacing: AppSpace.listRow, // 主轴间距
+        crossAxisSpacing: AppSpace.listItem, // 交叉轴间距
+        childAspectRatio: 0.7, // 宽高比
+      ),
+      itemCount: controller.items.length, // 数据长度
+      itemBuilder: (context, index) {
+        var product = controller.items[index];
+        return ProductItemWidget(
+          product, // 商品
+          imgHeight: 117.w, // 图片高度
+        );
+      },
     );
   }
 
@@ -20,10 +38,19 @@ class ProductListPage extends GetView<ProductListController> {
       id: "product_list",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("product_list")),
-          body: SafeArea(
-            child: _buildView(),
+          appBar: mainAppBarWidget(
+            titleString: controller.featured == true
+                ? LocaleKeys.gFlashSellTitle.tr
+                : LocaleKeys.gNewsTitle.tr,
           ),
+          body: SmartRefresher(
+            controller: controller.refreshController, // 刷新控制器，
+            enablePullDown: true, // 启用上拉加载
+            onLoading: controller.onLoading, // 下拉刷新回调
+            onRefresh: controller.onRefresh, // 上拉加载回调
+            footer: const SmartRefresherFooterWidget(), // 底部加载更多组件
+            child: _buildView(),
+          ).paddingHorizontal(AppSpace.page),
         );
       },
     );
