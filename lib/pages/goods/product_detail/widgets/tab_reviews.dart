@@ -38,7 +38,7 @@ class TabReviewsView extends GetView<ProductDetailController> {
     return <Widget>[
       // 头像
       const ImageWidget.asset(
-        AssetsImages.defaultPng,
+        AssetsImages.avatarJpeg,
         width: 55,
         height: 55,
       ).paddingRight(AppSpace.listItem),

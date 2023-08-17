@@ -61,9 +61,9 @@ class MyIndexPage extends GetView<MyIndexController> {
             // 用户信息
             <Widget>[
               // 头像
-              ImageWidget.url(
+              ImageWidget.asset(
                 // 测试需要改成自定义头像
-                "https://ducafecat.oss-cn-beijing.aliyuncs.com/avatar/00258VC3ly1gty0r05zh2j60ut0u0tce02.jpg",
+                AssetsImages.avatarJpeg,
                 width: 100.w,
                 height: 100.w,
                 fit: BoxFit.fill,
@@ -100,7 +100,7 @@ class MyIndexPage extends GetView<MyIndexController> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                 )
                 .paddingAll(AppSpace.card)
-                .card()
+                .card(radius: AppRadius.card)
                 .paddingHorizontal(AppSpace.page),
           ].toColumn(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -145,7 +145,7 @@ class MyIndexPage extends GetView<MyIndexController> {
 
         // 版权
         const TextWidget.body2(
-          "Code by: https://ducafefcat.tech",
+          "Code by: https://maojiu-bb.github.io/blog",
         ).alignCenter().paddingBottom(AppSpace.listRow).sliverBox,
 
         // 版本号

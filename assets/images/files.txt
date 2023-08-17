@@ -1,3 +1,4 @@
+static const avatarJpeg = 'assets/images/121325033.jpeg';
 static const splashPng = 'assets/images/Splash.png';
 static const defaultPng = 'assets/images/default.png';
 static const homePlaceholder_1Png = 'assets/images/home_placeholder 1.png';
