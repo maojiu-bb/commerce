@@ -98,6 +98,69 @@ class FilterView extends GetView<SearchFilterController> {
     );
   }
 
+  // 品牌选择
+  Widget _buildBrands() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_brands",
+      builder: (_) {
+        return TagsListWidget(
+          itemList: controller.brands,
+          keys: controller.brandKeys,
+          onTap: controller.onBrandTap,
+          bgSelectedColor: AppColors.highlight,
+          textSelectedColor: AppColors.onPrimary,
+          borderRadius: 11,
+          height: 17,
+          width: 55,
+          textSize: 9,
+          textWeight: FontWeight.w400,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
+  // 性别选择
+  Widget _buildGenders() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_genders",
+      builder: (_) {
+        return TagsListWidget(
+          itemList: controller.genders,
+          keys: controller.genderKeys,
+          onTap: controller.onGenderTap,
+          bgSelectedColor: AppColors.highlight,
+          textSelectedColor: AppColors.onPrimary,
+          borderRadius: 11,
+          height: 17,
+          width: 55,
+          textSize: 9,
+          textWeight: FontWeight.w400,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
+  // 条件选择
+  Widget _buildConditions() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_conditions",
+      builder: (_) {
+        return TagsListWidget(
+          itemList: controller.conditions,
+          keys: controller.conditionKeys,
+          onTap: controller.onConditionTap,
+          bgSelectedColor: AppColors.highlight,
+          textSelectedColor: AppColors.onPrimary,
+          borderRadius: 11,
+          height: 17,
+          width: 55,
+          textSize: 9,
+          textWeight: FontWeight.w400,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
   Widget _buildView() {
     return <Widget>[
       // 顶部
@@ -118,6 +181,18 @@ class FilterView extends GetView<SearchFilterController> {
       // 评价
       _buildTitle(LocaleKeys.searchFilterReview.tr),
       _buildStars(),
+
+      //  品牌选择
+      _buildTitle(LocaleKeys.searchFilterBrand.tr),
+      _buildBrands(),
+
+      // 性别选择
+      _buildTitle(LocaleKeys.searchFilterGender.tr),
+      _buildGenders(),
+
+      // 条件选择
+      _buildTitle(LocaleKeys.searchFilterCondition.tr),
+      _buildConditions(),
     ]
         .toColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
