@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
@@ -18,10 +19,22 @@ class SearchFilterController extends GetxController {
   KeyValueModel orderSelected =
       KeyValueModel(key: "rating", value: "Best Match");
 
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   // 排序选中
   void onOrderTap(KeyValueModel? val) {
     orderSelected = val!;
     update(["search_filter"]);
+  }
+
+  // 筛选 打开
+  void onFilterOpenTap() {
+    scaffoldKey.currentState?.openEndDrawer();
+  }
+
+  // 筛选 关闭
+  void onFilterCloseTap() {
+    Get.back();
   }
 
   _initData() {

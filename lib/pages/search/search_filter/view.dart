@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';
+import 'widgets/index.dart';
 
 class SearchFilterPage extends GetView<SearchFilterController> {
   const SearchFilterPage({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
           Icons.expand_more,
           color: AppColors.primary,
         ),
-        // onTap: controller.onFilterOpenTap,
+        onTap: controller.onFilterOpenTap,
         textSize: 15,
         textColor: AppColors.secondary,
         textWeight: FontWeight.w400,
@@ -65,6 +66,8 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       id: "search_filter",
       builder: (_) {
         return Scaffold(
+          // key
+          key: controller.scaffoldKey,
           // 导航
           appBar: mainAppBarWidget(
             // 输入文字
@@ -74,6 +77,10 @@ class SearchFilterPage extends GetView<SearchFilterController> {
           ),
           // 内容
           body: _buildView(),
+          // 右侧弹出 Drawer
+          endDrawer: const Drawer(
+            child: SafeArea(child: FilterView()),
+          ),
         );
       },
     );
