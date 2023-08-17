@@ -38,6 +38,9 @@ class SearchFilterController extends GetxController {
   // 选中颜色列表
   List<String> colorKeys = [];
 
+  // 星级
+  int starValue = -1;
+
   // 排序选中
   void onOrderTap(KeyValueModel? val) {
     orderSelected = val!;
@@ -98,6 +101,12 @@ class SearchFilterController extends GetxController {
   void onColorTap(List<String> keys) {
     colorKeys = keys;
     update(['filter_colors']);
+  }
+
+  // 星级选中
+  void onStarTap(int value) {
+    starValue = value;
+    update(["filter_stars"]);
   }
 
   _initData() {
