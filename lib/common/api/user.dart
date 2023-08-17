@@ -53,4 +53,17 @@ class UserApi {
     );
     return UserProfileModel.fromJson(res.data);
   }
+
+  /// 大陆国家洲省列表
+  static Future<List<ContientsModel>> continents() async {
+    var res = await WPHttpService.to.get(
+      '/users/continents',
+    );
+
+    List<ContientsModel> continents = [];
+    for (var item in res.data) {
+      continents.add(ContientsModel.fromJson(item));
+    }
+    return continents;
+  }
 }

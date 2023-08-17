@@ -18,4 +18,6 @@ export './woo/tags_model/tags_model.dart';
 export './woo/order_model/order_model.dart';
 export './woo/order_model/billing.dart';
 export './woo//order_model/shipping.dart';
+export './woo/contients_model/contients_model.dart';
+export './woo/contients_model/country.dart';
 // export './xxxx.dart';

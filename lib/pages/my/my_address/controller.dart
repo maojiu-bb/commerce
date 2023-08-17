@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_picker/Picker.dart';
 import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
@@ -10,6 +11,14 @@ class MyAddressController extends GetxController {
 
   // 表单 form
   GlobalKey formKey = GlobalKey<FormState>();
+
+  // 大陆国家洲省
+  List<ContientsModel> continents = [];
+  // 大陆国家
+  List<Map<KeyValueModel, List<KeyValueModel>>> contriesList = [];
+
+  // 国家选择
+  List<int> countrySels = [];
 
   // 输入框控制器
   TextEditingController firstNameController = TextEditingController();
@@ -23,6 +32,27 @@ class MyAddressController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController countryController = TextEditingController();
   TextEditingController statesController = TextEditingController();
+
+  // 拉取大陆国家洲省数据
+  Future<void> _fetchContinents() async {
+    continents = await UserApi.continents();
+    contriesList = List.generate(continents.length, (index) {
+      var entity = continents[index];
+      List<KeyValueModel> countryList = [];
+      for (Country country in entity.countries ?? []) {
+        countryList.add(KeyValueModel(
+          key: country.code ?? '-',
+          value: country.name ?? '-',
+        ));
+      }
+      return {
+        KeyValueModel(
+          key: entity.code ?? '-',
+          value: entity.name ?? '-',
+        ): countryList,
+      };
+    });
+  }
 
   // 初始化
   Future<void> _initData() async {
@@ -50,6 +80,28 @@ class MyAddressController extends GetxController {
       companyController.text = profile.shipping?.company ?? "";
       countryController.text = profile.shipping?.country ?? "";
       statesController.text = profile.shipping?.state ?? "";
+    }
+
+    // 拉取 大陆国家数据
+    await _fetchContinents();
+
+    // 国家代码
+    String countryCode = countryController.text;
+
+    // 国家选着器 - 选中 index
+    for (var i = 0; i < continents.length; i++) {
+      // 大陆
+      var continent = continents[i];
+      // 检查是否有选中的国家
+      int iCountryIndex =
+          continent.countries?.indexWhere((el) => el.code == countryCode) ?? 0;
+      if (iCountryIndex > 0) {
+        countrySels = [
+          i,
+          iCountryIndex,
+        ];
+        break;
+      }
     }
 
     update(["my_address"]);
@@ -95,6 +147,27 @@ class MyAddressController extends GetxController {
         Get.back<bool>(result: true);
       }
     }
+  }
+
+  // 国家选择
+  void onCountryPicker() async {
+    ActionBottomSheet.data(
+      title: 'Country',
+      context: Get.context!,
+      // 数据
+      adapter: PickerDataAdapter<KeyValueModel<String>>(
+        pickerData: contriesList,
+      ),
+      // 默认选中 [index, index]
+      selecteds: countrySels,
+      // 确认回调
+      onConfirm: (value) {
+        if (value.isEmpty) return;
+        if (value.length == 2) {
+          countryController.text = '${value[1].key}';
+        }
+      },
+    );
   }
 
   void onTap() {}
