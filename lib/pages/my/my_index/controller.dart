@@ -11,6 +11,11 @@ class MyIndexController extends GetxController {
     Get.find<MainController>().onJumpToPage(0);
   }
 
+  // 地址编辑页 type 1 billing 2 shipping
+  void onToAddress(String type) {
+    Get.toNamed(RouteNames.myMyAddress, arguments: {"type": type});
+  }
+
   _initData() {
     update(["my_index"]);
   }
