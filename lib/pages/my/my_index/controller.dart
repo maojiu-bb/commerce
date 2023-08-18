@@ -8,6 +8,7 @@ class MyIndexController extends GetxController {
   // 注销
   void onLogout() async {
     await UserService.to.logout();
+    Loading.success();
     Get.find<MainController>().onJumpToPage(0);
   }
 

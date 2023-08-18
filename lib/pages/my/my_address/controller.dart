@@ -156,6 +156,7 @@ class MyAddressController extends GetxController {
       }
       if (profile != null) {
         UserService.to.setProfile(profile);
+        Loading.success();
         Get.back<bool>(result: true);
       }
     }

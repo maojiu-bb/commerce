@@ -243,6 +243,10 @@ class ProductDetailController extends GetxController
       productId: productId,
       product: product,
     ));
+
+    // success
+    Loading.success();
+
     // 返回、或者去购物车
     Get.back();
   }
