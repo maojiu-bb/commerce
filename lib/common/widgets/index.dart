@@ -10,4 +10,5 @@ export './navigation.dart';
 export './icon_text.dart';
 export './list_tile.dart';
 export './button_item.dart';
+export './checkbox.dart';
 // export './xxxx.dart';

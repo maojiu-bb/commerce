@@ -10,6 +10,9 @@ class CartItem extends StatelessWidget {
   /// 订单数据
   final LineItem lineItem;
 
+  /// 是否全选
+  final bool isSelected;
+
   /// 修改数量事件
   final Function(int)? onChangeQuantity;
 
@@ -21,6 +24,7 @@ class CartItem extends StatelessWidget {
     required this.lineItem,
     this.onChangeQuantity,
     this.onSelect,
+    required this.isSelected,
   }) : super(key: key);
 
   // 主视图
@@ -29,6 +33,15 @@ class CartItem extends StatelessWidget {
     ProductModel product = lineItem.product!;
 
     return <Widget>[
+      // 单选框
+      CheckBoxWidget.all(
+        isSelected,
+        onSelect,
+        fontColor: AppColors.primary,
+        bgColorChecked: AppColors.primaryContainer,
+        size: 20.sp,
+      ).paddingRight(AppSpace.iconTextSmail),
+
       // 图片
       ImageWidget.url(
         Convert.aliImageResize(
