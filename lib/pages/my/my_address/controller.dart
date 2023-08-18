@@ -167,8 +167,8 @@ class MyAddressController extends GetxController {
       title: 'Country',
       context: Get.context!,
       // 数据
-      adapter: PickerDataAdapter<KeyValueModel<String>>(
-        pickerData: contriesList,
+      adapter: PickerDataAdapter<KeyValueModel<dynamic>>(
+        pickerdata: contriesList,
       ),
       // 默认选中 [index, index]
       selecteds: countrySels,
@@ -209,7 +209,7 @@ class MyAddressController extends GetxController {
       context: Get.context!,
       // 数据
       adapter: PickerDataAdapter<KeyValueModel>(
-        pickerData: statesList,
+        pickerdata: statesList,
       ),
       // 默认选中 [index]
       selecteds: statesSels,

@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_picker/Picker.dart';
 import 'package:get/get.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart'
+    as modal_bottom_sheet;
 
 import '../index.dart';
 
@@ -84,7 +85,7 @@ class ActionBottomSheet {
     bool enableDrag = true,
   }) async {
     /// 弹出底部模式对话框
-    return await showMaterialModalBottomSheet(
+    return await modal_bottom_sheet.showMaterialModalBottomSheet(
       // 上下文 context
       context: context,
       // 背景透明
@@ -120,7 +121,7 @@ class ActionBottomSheet {
     bool enableDrag = true,
   }) async {
     /// 弹出底部模式对话框
-    return await showBarModalBottomSheet(
+    return await modal_bottom_sheet.showBarModalBottomSheet(
       // 上下文 context
       context: context ?? Get.context!,
       // 背景透明
@@ -155,7 +156,7 @@ class ActionBottomSheet {
     EdgeInsetsGeometry? contentPadding,
     EdgeInsets? safeAreaMinimum,
   }) async {
-    return await showMaterialModalBottomSheet(
+    return await modal_bottom_sheet.showMaterialModalBottomSheet(
       context: context ?? Get.context!,
       backgroundColor: Colors.transparent,
       builder: (context) => SafeArea(

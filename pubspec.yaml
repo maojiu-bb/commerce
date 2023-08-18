@@ -72,9 +72,9 @@ dependencies:
   # 滑块选择器
   another_xlider: ^3.0.1
   # picker 选择器
-  flutter_picker: ^2.1.0
+  flutter_picker: 2.0.3
   # 底部弹出
-  modal_bottom_sheet: ^2.1.2
+  modal_bottom_sheet: 2.0.1
 
 dev_dependencies:
   flutter_test:

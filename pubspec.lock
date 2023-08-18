@@ -231,10 +231,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_picker
-      sha256: "2f94c6eefba8697b07e3cd008b75f06b4ba7053cb26d23ae0fcd5932b7dc75af"
+      sha256: "5bda0e7beca43bbcbd12423aa713374ba3fac3e464d74e11a942f2ccb1799c77"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.0"
+    version: "2.0.3"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -369,10 +369,10 @@ packages:
     dependency: "direct main"
     description:
       name: modal_bottom_sheet
-      sha256: ef533916a2c3089571c32bd34e410faca77a6849a3f28f748e0794525c5658a0
+      sha256: "99f2de943df227978049ddd611b36d98241cb27f360b8af8b561d64818d8da28"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.2"
+    version: "2.0.1"
   package_info_plus:
     dependency: "direct main"
     description:
