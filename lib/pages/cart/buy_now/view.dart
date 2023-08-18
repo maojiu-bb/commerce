@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';
+import 'widgets/index.dart';
 
 class BuyNowPage extends GetView<BuyNowController> {
   // 商品数据
@@ -91,6 +92,42 @@ class BuyNowPage extends GetView<BuyNowController> {
         .paddingBottom(AppSpace.listRow);
   }
 
+  // 小计
+  Widget _buildPrice() {
+    return <Widget>[
+      // Shipping: $2.05
+      BuildPriceLine(
+        titleString: LocaleKeys.placeOrderPriceShipping.tr,
+        priceString: "\$${controller.shipping}",
+      ),
+
+      // Discount: $3.05
+      BuildPriceLine(
+        titleString: LocaleKeys.placeOrderPriceDiscount.tr,
+        priceString: "\$${controller.discount}",
+      ),
+
+      // Voucher Code:
+      BuildPriceLine(
+        titleString: LocaleKeys.placeOrderPriceVoucherCode.tr,
+        rightWidget: ButtonWidget.text(
+          LocaleKeys.placeOrderPriceVoucherCodeEnter.tr,
+          textSize: 9,
+          textColor: AppColors.highlight,
+        ),
+      ),
+
+      // Total: $14.60
+      BuildPriceLine(
+        leftWidget: TextWidget.body1(LocaleKeys.placeOrderTotal.tr),
+        rightWidget: TextWidget.body1(
+            "\$${controller.totalPrice - controller.discount}"),
+      ),
+
+      //
+    ].toColumn().paddingBottom(AppSpace.listRow);
+  }
+
   // 主视图
   Widget _buildView() {
     return <Widget>[
@@ -104,9 +141,14 @@ class BuyNowPage extends GetView<BuyNowController> {
 
       // 数量
       _buildTitle(LocaleKeys.placeOrderQuantity.tr),
+      QuantityWidget(
+        quantity: controller.quantity,
+        onChange: controller.onQuantityChange,
+      ).paddingBottom(AppSpace.listRow),
 
       // 小计
       _buildTitle(LocaleKeys.placeOrderPrice.tr),
+      _buildPrice(),
 
       // 按钮
       _buildButtons(),
