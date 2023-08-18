@@ -114,7 +114,10 @@ class CartIndexPage extends GetView<CartIndexController> {
       id: "cart_index",
       builder: (_) {
         return Scaffold(
-          appBar: mainAppBarWidget(titleString: LocaleKeys.gCartTitle.tr),
+          appBar: mainAppBarWidget(
+            titleString: LocaleKeys.gCartTitle.tr,
+            titleSpace: 30,
+          ),
           body: SafeArea(
             child: _buildView(),
           ),
