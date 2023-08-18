@@ -9,6 +9,9 @@ class CartService extends GetxService {
   /// 购物车商品
   final List<LineItem> lineItems = RxList<LineItem>();
 
+  /// 优惠券列表
+  final List<CouponsModel> lineCoupons = [];
+
   /// 加入商品
   void addCart(LineItem item) {
     // 检查是否存在
@@ -55,14 +58,29 @@ class CartService extends GetxService {
     lineItems.clear();
   }
 
+  /// 使用优惠券
+  bool applyCoupon(CouponsModel item) {
+    // 是否有重复
+    int index = lineCoupons.indexWhere((element) => element.id == item.id);
+    if (index >= 0) {
+      return false;
+    }
+    // 添加
+    lineCoupons.add(item);
+    return true;
+  }
+
+  /// 折扣
+  double get discount =>
+      lineCoupons.fold<double>(0, (double previousValue, CouponsModel element) {
+        return previousValue + (double.parse(element.amount ?? "0"));
+      });
+
   /// 商品数量
   int get lineItemsCount => lineItems.length;
 
   /// 运费
   double get shipping => 0;
-
-  /// 折扣
-  double get discount => 0;
 
   /// 商品合计价格
   double get totalItemsPrice =>

@@ -21,4 +21,5 @@ export './woo/order_model/billing.dart';
 export './woo//order_model/shipping.dart';
 export './woo/contients_model/contients_model.dart';
 export './woo/contients_model/country.dart';
+export './woo/coupons_model/coupons_model.dart';
 // export './xxxx.dart';
