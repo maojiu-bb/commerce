@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:woo_commerce/common/index.dart';
+import 'package:woo_commerce/pages/index.dart';
 
 class ProductDetailController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -244,6 +245,25 @@ class ProductDetailController extends GetxController
     ));
     // 返回、或者去购物车
     Get.back();
+  }
+
+  // 立刻购买 checkout
+  void onCheckoutTap() async {
+    // 检查是否登录
+    if (!await UserService.to.checkIsLogin()) {
+      return;
+    }
+
+    // 检查空
+    if (product == null || product?.id == null) {
+      Loading.error("product is empty");
+      return;
+    }
+
+    // 立刻购买 checkout
+    ActionBottomSheet.barModel(
+      BuyNowPage(product: product!),
+    );
   }
 
   _initData() async {
