@@ -30,6 +30,9 @@ class Global {
 
     /// user service
     Get.put<UserService>(UserService());
+
+    /// cart service
+    Get.put<CartService>(CartService());
   }
 
   // 系统样式(android)
