@@ -22,16 +22,20 @@ class CartIndexPage extends GetView<CartIndexController> {
     );
   }
 
-  // 优惠券 568935ab
+  // 优惠券, 568935ab
   Widget _buildCoupons() {
     return <Widget>[
       // 输入框
       InputWidget.textBorder(
-        hintText: 'Voucher Code',
+        hintText: "Voucher Code",
         fillColor: AppColors.surface,
-      ).expanded().paddingRight(AppSpace.listItem),
+      ).expanded(),
 
-      //  应用按钮
+      SizedBox(
+        width: AppSpace.listItem,
+      ),
+
+      // 应用按钮
       ButtonWidget.text(
         LocaleKeys.gCartBtnApplyCode.tr,
         textColor: AppColors.highlight,
@@ -41,7 +45,7 @@ class CartIndexPage extends GetView<CartIndexController> {
     ].toRow();
   }
 
-  // 费用小记
+  // 统计
   Widget _buildTotal() {
     return <Widget>[
       // 运费、代金券
