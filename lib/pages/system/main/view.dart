@@ -65,7 +65,7 @@ class _MainViewGetX extends GetView<MainController> {
                     NavigationItemModel(
                       label: LocaleKeys.tabBarMessage.tr,
                       icon: AssetsSvgs.navMessageSvg,
-                      count: 9, // badge
+                      count: 1,
                     ),
                     NavigationItemModel(
                       label: LocaleKeys.tabBarProfile.tr,
@@ -82,7 +82,6 @@ class _MainViewGetX extends GetView<MainController> {
           controller: controller.pageController,
           onPageChanged: controller.onIndexChanged,
           children: const [
-            // 加入空页面占位
             HomePage(),
             CartIndexPage(),
             MsgIndexPage(),

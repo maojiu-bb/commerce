@@ -8,4 +8,5 @@ export './picker.dart';
 export './bottom_sheet.dart';
 export './convert.dart';
 export './privilege.dart';
+export './picker_image.dart';
 // export './xxxx.dart';

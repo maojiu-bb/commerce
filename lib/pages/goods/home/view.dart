@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:woo_commerce/common/components/product_item.dart';
 import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';

@@ -13,17 +13,26 @@ class ProfileEditPage extends GetView<ProfileEditController> {
     return ListTileWidget(
       title: TextWidget.body1(LocaleKeys.profileEditMyPhoto.tr),
       trailing: [
-        ImageWidget.asset(
-          // UserService.to.profile.avatarUrl,
-          // "https://ducafecat.oss-cn-beijing.aliyuncs.com/avatar/00258VC3ly1gty0r05zh2j60ut0u0tce02.jpg",
-          AssetsImages.avatarJpeg,
-          width: 50.w,
-          height: 50.w,
-          fit: BoxFit.cover,
-          radius: 25.w,
-        ),
+        controller.filePhoto != null
+            ? ImageWidget.file(
+                controller.filePhoto?.path ?? "",
+                width: 50.w,
+                height: 50.w,
+                fit: BoxFit.cover,
+                radius: 25.w,
+              )
+            : ImageWidget.asset(
+                // UserService.to.profile.avatarUrl,
+                // "https://ducafecat.oss-cn-beijing.aliyuncs.com/avatar/00258VC3ly1gty0r05zh2j60ut0u0tce02.jpg",
+                AssetsImages.avatarJpeg,
+                width: 50.w,
+                height: 50.w,
+                fit: BoxFit.cover,
+                radius: 25.w,
+              ),
       ],
       padding: EdgeInsets.all(AppSpace.card),
+      onTap: controller.onSelectPhoto,
     ).card().height(90.h).paddingBottom(AppSpace.card);
   }
 

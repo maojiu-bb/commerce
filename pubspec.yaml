@@ -78,6 +78,11 @@ dependencies:
   modal_bottom_sheet: 2.0.1
   # permission 权限
   permission_handler: 9.2.0
+  # 媒体选择
+  # 照片选择
+  wechat_assets_picker: ^8.6.3
+  # 拍照
+  wechat_camera_picker: ^4.0.0
 
 dev_dependencies:
   flutter_test:
