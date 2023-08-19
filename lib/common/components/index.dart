@@ -17,4 +17,5 @@ export './dropdown.dart';
 export './price_range.dart';
 export './stars_list.dart';
 export './quantity.dart';
+export './steps.dart';
 // export './xxxx.dart';
