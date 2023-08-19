@@ -87,6 +87,7 @@ class CartIndexPage extends GetView<CartIndexController> {
       // 确认下单 checkout
       ButtonWidget.primary(
         LocaleKeys.gCartBtnCheckout.tr,
+        onTap: controller.onCheckout,
         borderRadius: 3.sp,
       ).tight(
         width: 100.w,

@@ -82,6 +82,9 @@ class CartIndexController extends GetxController {
     update(["cart_index"]);
   }
 
+  // checkout
+  Future<void> onCheckout() async {}
+
   _initData() {
     update(["cart_index"]);
   }
