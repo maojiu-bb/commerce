@@ -27,7 +27,9 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "woo_commerce.maojiu.com.woo_commerce"
-    compileSdkVersion flutter.compileSdkVersion
+    // compileSdkVersion flutter.compileSdkVersion
+    // 编译SDK版本
+     compileSdkVersion 31
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -48,8 +50,12 @@ android {
         applicationId "woo_commerce.maojiu.com.woo_commerce"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        // minSdkVersion flutter.minSdkVersion
+        // targetSdkVersion flutter.targetSdkVersion
+
+        minSdkVersion 21 // 最小版本
+        targetSdkVersion 30  // 目标版本
+
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
