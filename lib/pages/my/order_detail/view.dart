@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';
+import 'widgets/index.dart';
 
 class OrderDetailPage extends GetView<OrderDetailController> {
   const OrderDetailPage({Key? key}) : super(key: key);
@@ -113,7 +114,32 @@ class OrderDetailPage extends GetView<OrderDetailController> {
 
   // 寄件地、目的地
   Widget _buildBillAddress() {
-    return const Text("寄件地、目的地");
+    return <Widget>[
+      // Bill From, 商家发货地址写死
+      BuildBillAddress(
+        title: LocaleKeys.orderDetailsBillFrom.tr,
+        address: "Adidas Shoes",
+        city: "Kingston",
+        state: "New York",
+        country: "United States",
+        phone: "+44-213 543 230",
+      ).expanded(),
+
+      // 间距
+      SizedBox(
+        width: AppSpace.iconTextMedium,
+      ),
+
+      // Bill To
+      BuildBillAddress(
+        title: LocaleKeys.orderDetailsBillTo.tr,
+        address: controller.order.shipping?.address1,
+        city: controller.order.shipping?.city,
+        state: controller.order.shipping?.state,
+        country: controller.order.shipping?.country,
+        phone: controller.order.billing?.phone,
+      ).expanded(),
+    ].toRow().paddingAll(AppSpace.card).card().paddingBottom(AppSpace.listRow);
   }
 
   // 商品列表
