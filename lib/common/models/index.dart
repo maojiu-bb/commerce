@@ -8,6 +8,7 @@ export './kv.dart';
 export './request/user_register_req.dart';
 export './request/user_login_req.dart';
 export './request/product_req.dart';
+export './request/order_req.dart';
 
 export './woo/user_profile_model/user_profile_model.dart';
 export './woo/category_model/category_model.dart';
