@@ -17,6 +17,18 @@ class MyIndexController extends GetxController {
     Get.toNamed(RouteNames.myMyAddress, arguments: {"type": type});
   }
 
+  void onLanguageSelected() {
+    var en = Translation.supportedLocales[0];
+    var zh = Translation.supportedLocales[1];
+
+// 切换语言
+    ConfigService.to.onLocaleUpdate(
+        ConfigService.to.locale.toLanguageTag() == en.toLanguageTag()
+            ? zh
+            : en);
+    update(["styles_index"]);
+  }
+
   _initData() {
     update(["my_index"]);
   }

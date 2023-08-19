@@ -152,7 +152,7 @@ class MyIndexPage extends GetView<MyIndexController> {
         title: LocaleKeys.myBtnLanguage.tr,
         svgPath: AssetsSvgs.pTranslateSvg,
         color: "41AA3D".toColor,
-        onTap: () => Get.toNamed(RouteNames.myLanguage),
+        onTap: controller.onLanguageSelected,
       ),
 
       // Theme
@@ -164,12 +164,12 @@ class MyIndexPage extends GetView<MyIndexController> {
       ),
 
       // 调试工具
-      ButtonItemWidget(
-        title: LocaleKeys.myBtnStyles.tr,
-        svgPath: AssetsSvgs.pCurrencySvg,
-        color: "4971FF".toColor,
-        onTap: () => Get.toNamed(RouteNames.stylesStylesIndex),
-      ),
+      // ButtonItemWidget(
+      //   title: LocaleKeys.myBtnStyles.tr,
+      //   svgPath: AssetsSvgs.pCurrencySvg,
+      //   color: "4971FF".toColor,
+      //   onTap: () => Get.toNamed(RouteNames.stylesStylesIndex),
+      // ),
 
       // end
     ].toColumn().card().paddingBottom(30.h);
