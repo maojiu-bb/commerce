@@ -95,7 +95,7 @@ class _MainViewGetX extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MainController>(
-      // init: MainController(),
+      init: MainController(),
       id: "main",
       builder: (_) => _buildView(),
     );
