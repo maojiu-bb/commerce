@@ -29,9 +29,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+    </application>
 
-        
-        <!-- 启用权限 -->
+    <!-- 启用权限 -->
         <!--
         Internet permissions do not affect the `permission_handler` plugin, but are required if your app needs access to
         the internet.
@@ -48,5 +48,4 @@
 
         <!-- Permissions options for the `microphone` or `speech` group -->
         <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    </application>
 </manifest>
