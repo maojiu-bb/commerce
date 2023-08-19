@@ -18,6 +18,7 @@ class ConfigService extends GetxService {
   // 主题
   final RxBool _isDarkModel = Get.isDarkMode.obs;
   bool get isDarkModel => _isDarkModel.value;
+  set isDarkModel(bool value) => _isDarkModel.value = value;
 
   // 是否首次打开
   bool get isAlreadyOpen => Storage().getBool(Constants.storageAlreadyOpen);
@@ -33,6 +34,11 @@ class ConfigService extends GetxService {
     Get.changeTheme(
       _isDarkModel.value == true ? AppTheme.dark : AppTheme.light,
     );
+
+    Future.delayed(const Duration(milliseconds: 250), () {
+      Get.forceAppUpdate();
+    });
+
     await Storage().setString(Constants.storageThemeCode,
         _isDarkModel.value == true ? "dark" : "light");
   }

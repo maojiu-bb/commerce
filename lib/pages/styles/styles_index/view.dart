@@ -62,6 +62,14 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => Get.toNamed(RouteNames.stylesTextForm),
           title: const TextWidget.body1("form 表单"),
         ),
+
+        // 测试卡片颜色
+        Container(
+          width: 200,
+          height: 100,
+          color: AppColors.primary,
+          child: const Text('test'),
+        ),
       ],
     );
   }
