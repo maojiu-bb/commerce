@@ -144,7 +144,10 @@ class OrderDetailPage extends GetView<OrderDetailController> {
 
   // 商品列表
   Widget _buildProductsList() {
-    return const Text("商品列表");
+    return BuildProductList(
+      lineItems: controller.order.lineItems ?? [],
+      currencySymbol: controller.order.currencySymbol,
+    ).paddingAll(AppSpace.card).card().paddingBottom(AppSpace.listRow);
   }
 
   // 小计
