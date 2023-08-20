@@ -55,6 +55,12 @@ class LoginPage extends GetView<LoginController> {
         ButtonWidget.primary(
           LocaleKeys.loginSignIn.tr,
           onTap: controller.onSignIn,
+        ).paddingBottom(15.w),
+
+        // 前往注册
+        ButtonWidget.secondary(
+          LocaleKeys.registerDesc.tr,
+          onTap: controller.onSignUp,
         ).paddingBottom(30.w),
 
         // OR
