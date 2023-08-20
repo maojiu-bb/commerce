@@ -136,10 +136,10 @@ class RoutePages {
       name: RouteNames.systemLogin,
       page: () => const LoginPage(),
     ),
-    GetPage(
-      name: RouteNames.systemMain,
-      page: () => const MainPage(),
-    ),
+    // GetPage(
+    //   name: RouteNames.systemMain,
+    //   page: () => const MainPage(),
+    // ),
     GetPage(
       name: RouteNames.systemRegister,
       page: () => const RegisterPage(),
