@@ -51,6 +51,8 @@ class MyApp extends StatelessWidget {
             locale: ConfigService.to.locale, // 当前语言种类
             fallbackLocale: Translation.fallbackLocale, // 默认语言种类
 
+            defaultTransition: Transition.rightToLeft, // 默认过渡动画
+
             // 样式
             theme:
                 ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
