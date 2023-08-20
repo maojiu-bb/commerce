@@ -195,4 +195,7 @@ class LocaleKeys {
   static const profileEditNewPassword = "profile_edit_new_password";
   static const profileEditConfirmPassword = "profile_edit_confirm_password";
   static const profileEditPasswordTip = "profile_edit_password_tip";
+
+  // 信息
+  static const messageTitle = "message_title";
 }

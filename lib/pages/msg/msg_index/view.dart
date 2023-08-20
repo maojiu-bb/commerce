@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woo_commerce/common/index.dart';
 
 import 'index.dart';
 
@@ -20,7 +21,10 @@ class MsgIndexPage extends GetView<MsgIndexController> {
       id: "msg_index",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("msg_index")),
+          appBar: mainAppBarWidget(
+            titleSpace: 30,
+            titleString: LocaleKeys.messageTitle.tr,
+          ),
           body: SafeArea(
             child: _buildView(),
           ),

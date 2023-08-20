@@ -201,4 +201,7 @@ Map<String, String> localeEn = {
   LocaleKeys.profileEditNewPassword: 'New password',
   LocaleKeys.profileEditConfirmPassword: 'Confirm password',
   LocaleKeys.profileEditPasswordTip: 'No input means no modification',
+
+  // 信息
+  LocaleKeys.messageTitle: 'Message',
 };

@@ -199,4 +199,7 @@ Map<String, String> localeZh = {
   LocaleKeys.profileEditNewPassword: '新密码',
   LocaleKeys.profileEditConfirmPassword: '确认密码',
   LocaleKeys.profileEditPasswordTip: '不输入表示不修改',
+
+  // 信息
+  LocaleKeys.messageTitle: '消息',
 };
