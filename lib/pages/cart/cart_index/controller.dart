@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:woo_commerce/common/index.dart';
+import 'package:woo_commerce/pages/index.dart';
 
 class CartIndexController extends GetxController {
   CartIndexController();
@@ -9,6 +10,9 @@ class CartIndexController extends GetxController {
 
   // 商品是否选中
   List<int> selectedIds = [];
+
+  // 商品详情
+  List<ProductModel> products = [];
 
   // 是否全选
   bool get isSelectedAll => CartService.to.lineItems.isEmpty
@@ -21,26 +25,34 @@ class CartIndexController extends GetxController {
   }
 
   // 全选
-  void onSelectAll(bool isSelected) {
+  Future<void> onSelectAll(bool isSelected) async {
     if (isSelected) {
       // 全选
       selectedIds =
           CartService.to.lineItems.map((item) => item.productId!).toList();
+      for (var element in selectedIds) {
+        var product = await ProductApi.productDetail(element);
+        products.add(product);
+      }
     } else {
       // 全不选
       selectedIds.clear();
+      products.clear();
     }
     update(["cart_index"]);
   }
 
   // 选中
-  void onSelect(int productId, bool isSelected) {
+  Future<void> onSelect(int productId, bool isSelected) async {
     if (isSelected) {
-      // 全选
+      //
       selectedIds.add(productId);
+      var product = await ProductApi.productDetail(productId);
+      products.add(product);
     } else {
-      // 全不选
+      //
       selectedIds.remove(productId);
+      products.removeWhere((product) => product.id == productId);
     }
     update(["cart_index"]);
   }
@@ -52,6 +64,7 @@ class CartIndexController extends GetxController {
       CartService.to.cancelOrder(productId);
     }
     selectedIds.clear();
+    products.clear();
     update(["cart_index"]);
   }
 
@@ -83,7 +96,22 @@ class CartIndexController extends GetxController {
   }
 
   // checkout
-  Future<void> onCheckout() async {}
+  Future<void> onCheckout() async {
+    if (CartService.to.lineItems.isEmpty) {
+      return Loading.error("Cart is empty.");
+    }
+    if (selectedIds.isEmpty) {
+      return Loading.error("Please select at least one product.");
+    }
+
+    ActionBottomSheet.barModel(
+      BuyNowPage(product: products[0]),
+    ).whenComplete(() {
+      selectedIds.remove(selectedIds[0]);
+      products.remove(products[0]);
+      update(["cart_index"]);
+    });
+  }
 
   _initData() {
     update(["cart_index"]);
